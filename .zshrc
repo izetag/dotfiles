@@ -4,7 +4,20 @@ export PATH="$HOME/local/bin":$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 if [ ! -d "$ZSH" ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    # If this user's login shell is not already "zsh", attempt to switch.
+    TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+    if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
+	# If this platform provides a "chsh" command (not Cygwin), do it, man!
+	if hash chsh >/dev/null 2>&1; then
+	    printf "Time to change your default shell to zsh!\n"
+	    chsh -s $(grep /zsh$ /etc/shells | tail -1)
+	    # Else, suggest the user do so manually.
+	else
+	    printf "I can't change your shell automatically because this system does not have chsh.\n"
+	    printf "Please manually change your default shell to zsh!\n"
+	fi
+    fi
 fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
