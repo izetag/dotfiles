@@ -1,5 +1,13 @@
-# If you come from bash you might have to change your $PATH.
-export PATH="$HOME/local/bin":$HOME/bin:/usr/local/bin:$PATH
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export GOROOT="/usr/local/go"
+# If you come from bash you might have to change your $
+export PATH="$GOBIN":"$HOME/local/bin":$HOME/bin:/usr/local/bin:$PATH
+
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
+setopt hist_ignore_all_dups
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -102,3 +110,5 @@ alias svndiff="svn diff | less -r"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 LOCAL_ZSH_CONFIG="${HOME}/.zshrc.local"
 test -e $LOCAL_ZSH_CONFIG  && source $LOCAL_ZSH_CONFIG
+export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
