@@ -1,5 +1,18 @@
-# If you come from bash you might have to change your $PATH.
-export PATH="$HOME/local/bin":$HOME/bin:/usr/local/bin:$PATH
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export GOROOT="/usr/local/opt/go/libexec"
+# If you come from bash you might have to change your $
+PATH="$GOBIN":"$HOME/local/bin":$HOME/bin:/usr/local/bin:$PATH
+
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
+setopt hist_ignore_all_dups
+
+if  command -v brew &> /dev/null
+then
+    PATH="$(brew --prefix)/opt/python/libexec/bin":$PATH
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -69,7 +82,7 @@ export ZSH_TMUX_UNICODE=true
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zshmarks colored-man-pages zsh-syntax-highlighting zsh-autosuggestions colorize tmux)
+plugins=(git zshmarks colored-man-pages zsh-syntax-highlighting zsh-autosuggestions colorize tmux bazel)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,3 +118,16 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 LOCAL_ZSH_CONFIG="${HOME}/.zshrc.local"
 test -e $LOCAL_ZSH_CONFIG  && source $LOCAL_ZSH_CONFIG
 [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
+PATH="/usr/local/opt/curl/bin:$PATH"
+PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="$HOME/sbin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/Users/izetag/yandex-cloud/path.bash.inc' ]; then source '/Users/izetag/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/Users/izetag/yandex-cloud/completion.zsh.inc' ]; then source '/Users/izetag/yandex-cloud/completion.zsh.inc'; fi
+
