@@ -62,12 +62,14 @@ ZSH_THEME="mrtazz"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
+export ZSH_TMUX_AUTOSTART_ONCE=true
+export ZSH_TMUX_AUTOCONNECT=true
+export ZSH_TMUX_UNICODE=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zshmarks)
+plugins=(git zshmarks colored-man-pages zsh-syntax-highlighting zsh-autosuggestions colorize tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,3 +104,4 @@ alias svndiff="svn diff | less -r"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 LOCAL_ZSH_CONFIG="${HOME}/.zshrc.local"
 test -e $LOCAL_ZSH_CONFIG  && source $LOCAL_ZSH_CONFIG
+[ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
