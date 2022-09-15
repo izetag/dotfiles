@@ -1,6 +1,6 @@
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-export GOROOT="/usr/local/go"
+export GOROOT="/usr/local/opt/go/libexec"
 # If you come from bash you might have to change your $
 PATH="$GOBIN":"$HOME/local/bin":$HOME/bin:/usr/local/bin:$PATH
 
@@ -80,7 +80,7 @@ ZSH_THEME="mrtazz"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zshmarks)
+plugins=(git zshmarks bazel)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,3 +118,13 @@ test -e $LOCAL_ZSH_CONFIG  && source $LOCAL_ZSH_CONFIG
 PATH="/usr/local/opt/curl/bin:$PATH"
 PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="$HOME/sbin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/Users/izetag/yandex-cloud/path.bash.inc' ]; then source '/Users/izetag/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/Users/izetag/yandex-cloud/completion.zsh.inc' ]; then source '/Users/izetag/yandex-cloud/completion.zsh.inc'; fi
+
