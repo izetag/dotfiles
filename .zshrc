@@ -122,7 +122,7 @@ PATH="/usr/local/opt/curl/bin:$PATH"
 PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH
 export PATH="/usr/local/opt/llvm/bin:$PATH"
-export PATH="$HOME/sbin:$PATH"
+export PATH="$HOME/bin:$HOME/sbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
 # The next line updates PATH for Yandex Cloud CLI.
